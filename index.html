@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My AWS EC2 Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        .success-badge {
+            background: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin: 20px 0;
+            display: inline-block;
+        }
+        .features {
+            text-align: left;
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        .features li {
+            margin: 10px 0;
+            list-style: none;
+            padding-left: 25px;
+            position: relative;
+        }
+        .features li:before {
+            content: "✓";
+            color: #28a745;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .ip-address {
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Success! Website is Live</h1>
+        <div class="success-badge">NGINX + AWS EC2 = ✅ WORKING</div>
+
+        <p>Your static website is now successfully hosted on Amazon EC2 with Nginx!</p>
+
+        <div class="features">
+            <h3>✨ What's Running:</h3>
+            <li>Nginx Web Server</li>
+            <li>AWS EC2 Instance</li>
+            <li>Static HTML Content</li>
+            <li>Secure HTTPS-ready setup</li>
+        </div>
+
+        <div class="ip-address">
+            Server IP: $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4)
+        </div>
+
+        <p><strong>Next steps:</strong> Upload your custom HTML/CSS/JS files to <code>/usr/share/nginx/html/</code></p>
+    </div>
+</body>
+</html>
